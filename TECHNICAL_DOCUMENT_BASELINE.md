@@ -1,6 +1,6 @@
 # Frame-level ball possession: nearest player with a majority vote
 
-**Team:** [TEAM NAME] · More than a Hack 2027, Phase 1
+**Team:** WhiteSpace · More than a Hack 2027, Phase 1
 
 ## Summary
 
@@ -45,7 +45,7 @@ and did not tune anything on the public window.
 **Why the baseline and not our own method.** We built a separate pipeline (logistic models over
 tracking features, decoded into possessions with a Viterbi pass, fitted on Metrica's public sample
 games). It was not run on the competition match before the deadline, so it produced no file we could
-submit and it is not part of this entry. [CONFIRM OR REMOVE THIS PARAGRAPH]
+submit and it is not part of this entry.
 
 ## Assets used
 
@@ -59,6 +59,13 @@ submit and it is not part of this entry. [CONFIRM OR REMOVE THIS PARAGRAPH]
 | External data or models | No | None |
 
 The home team is the first team listed in the tracking metadata, which is Barcelona for this match.
+
+## Training data
+
+None. The baseline has no model and nothing is trained or fitted. No labelled data of any kind was
+used, and no hand labels or human-produced data about the provided game were used for any purpose.
+The window of ±50 frames is the organisers' published variant; we did not choose it by scoring
+anything ourselves.
 
 ## Possession rules implemented
 
@@ -83,7 +90,7 @@ The home team is the first team listed in the tracking metadata, which is Barcel
 - **No use of context.** Smart Tagging, team shape and the videos are ignored.
 
 With more time we would run our own pipeline on the match, which models dead-ball stretches and
-decodes whole possessions instead of smoothing frames. [CONFIRM OR REMOVE]
+decodes whole possessions instead of smoothing frames.
 
 ## Reproduction
 

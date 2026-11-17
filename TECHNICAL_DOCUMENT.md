@@ -1,6 +1,6 @@
 # Frame-level ball possession from automatic tracking
 
-**Team:** [TO FILL: team name] · More than a Hack 2027, Phase 1
+**Team:** WhiteSpace · More than a Hack 2027, Phase 1
 
 ## Summary
 
@@ -15,8 +15,7 @@ strongly the public games were degraded for validation (see "Noise calibration")
 On public games held out from fitting, under noise calibrated to reproduce the published baseline
 scores, the method reaches **`spellF1` 0.54 against 0.26** for `baseline_smooth50` on the same data.
 
-**On the competition match:** [TO FILL: possessions, mean duration, dead share, and the public-window
-line from `make_submission.py`]. The full-match score is not known to us.
+**On the competition match:** 199 possessions, mean 11.8 s, median 9.5 s, dead share 0.630, public-window spellF1 0.2625 macroF1 0.6569 (15/17). The full-match score is not known to us.
 
 ## The approach, and why
 
@@ -180,7 +179,7 @@ export MTAH_DATA_DIR=/path/to/bundle                              # or unpack in
 Use `requirements-lock.txt`, not the organisers' unpinned `requirements.txt`, which is for their
 starter notebooks.
 
-**Expected checksum of the file:** [TO FILL: sha256 from `make_submission.py`]
+**Expected checksum of the file:** d73523986d9cffa1b22e228e47e3a24aa138703b02028af59217c4e2f784d924
 
 The pipeline has no random component: models are fitted exactly by Newton's method, and evidence is
 rounded before decoding. On a full-size rehearsal bundle in the competition's format, the output was

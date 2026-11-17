@@ -12,29 +12,30 @@ question to answer with it.
 
 ## This repository: a team submission
 
-This is a participant's copy of the organisers' repository with our Phase 1 submission added. The
-method, its validation and its limits are in **[TECHNICAL_DOCUMENT.md](TECHNICAL_DOCUMENT.md)**.
+This is a participant's copy of the organisers' repository with our Phase 1 submission added.
 
-To regenerate the submission file you need Python 3.13 and the competition data bundle, which is
-not in this repository and may not be redistributed. Windows (PowerShell):
+**Our submitted file is the organisers' `baseline_smooth50`, unmodified**, renamed to our team name.
+The approach, its limits and how to reproduce it are in
+**[TECHNICAL_DOCUMENT_BASELINE.md](TECHNICAL_DOCUMENT_BASELINE.md)**. To regenerate it you need the
+competition data bundle, unpacked into `data/` as described in [DATA.md](DATA.md); it is not in this
+repository and may not be redistributed.
 
-```powershell
-python -m venv .venv
-.venv\Scripts\python -m pip install -r requirements-lock.txt
-$env:MTAH_DATA_DIR = "D:\path\to\bundle"      # must contain tactical\BAR-ATH_tactical_atd.txt etc.
-
-.venv\Scripts\python check_data.py
-.venv\Scripts\python make_submission.py --team <team_name>
-.venv\Scripts\python evaluation\validate_submission.py evaluation\results\<team_name>.csv
+```
+pip install -r requirements.txt
+python starter/baseline.py
+python evaluation/validate_submission.py evaluation/results/baseline_smooth50.csv
 ```
 
-On macOS or Linux use `.venv/bin/python` and `export MTAH_DATA_DIR=/path/to/bundle`.
-`make_submission.py` prints the file's sha256; the expected value is in the technical document.
+`evaluation/results/baseline_smooth50.csv` is the submitted file, before renaming.
+
+We also built a separate pipeline (`possession/`, described in
+[TECHNICAL_DOCUMENT.md](TECHNICAL_DOCUMENT.md)). **It did not produce the submitted file** and is
+included only as work in progress.
 
 | Ours | What it is |
 |---|---|
-| `possession/` | the pipeline, with its fitted `model.json` and `params.json` |
-| `make_submission.py` | the one command that writes the file |
+| `possession/` | the unsubmitted pipeline, with its fitted `model.json` and `params.json` |
+| `make_submission.py` | the command that would write the pipeline's file |
 | `check_data.py`, `diagnose_public_window.py` | checks on the data and on the result |
 | `requirements-lock.txt` | the pinned dependencies (use this, not `requirements.txt`) |
 | `validation/` | how the method was fitted and measured on public games; not needed to regenerate the file |
