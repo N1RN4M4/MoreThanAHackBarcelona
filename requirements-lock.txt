@@ -1,0 +1,4 @@
+# The exact versions make_submission.py was run and checked with, on Python 3.13.6.
+# Nothing else is needed to regenerate the submission.
+numpy==2.5.4
+pandas==3.1.0

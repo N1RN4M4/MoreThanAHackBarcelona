@@ -10,6 +10,43 @@ question to answer with it.
 
 ---
 
+## This repository: a team submission
+
+This is a participant's copy of the organisers' repository with our Phase 1 submission added. The
+method, its validation and its limits are in **[TECHNICAL_DOCUMENT.md](TECHNICAL_DOCUMENT.md)**.
+
+To regenerate the submission file you need Python 3.13 and the competition data bundle, which is
+not in this repository and may not be redistributed. Windows (PowerShell):
+
+```powershell
+python -m venv .venv
+.venv\Scripts\python -m pip install -r requirements-lock.txt
+$env:MTAH_DATA_DIR = "D:\path\to\bundle"      # must contain tactical\BAR-ATH_tactical_atd.txt etc.
+
+.venv\Scripts\python check_data.py
+.venv\Scripts\python make_submission.py --team <team_name>
+.venv\Scripts\python evaluation\validate_submission.py evaluation\results\<team_name>.csv
+```
+
+On macOS or Linux use `.venv/bin/python` and `export MTAH_DATA_DIR=/path/to/bundle`.
+`make_submission.py` prints the file's sha256; the expected value is in the technical document.
+
+| Ours | What it is |
+|---|---|
+| `possession/` | the pipeline, with its fitted `model.json` and `params.json` |
+| `make_submission.py` | the one command that writes the file |
+| `check_data.py`, `diagnose_public_window.py` | checks on the data and on the result |
+| `requirements-lock.txt` | the pinned dependencies (use this, not `requirements.txt`) |
+| `validation/` | how the method was fitted and measured on public games; not needed to regenerate the file |
+| `tests/` | `python -m unittest discover -s tests` |
+
+Validation uses the public sample games published by Metrica Sports
+(<https://github.com/metrica-sports/sample-data>), fetched by `validation/download_open_data.py` and
+not committed here. Everything else in this repository is the organisers' and remains under their
+[LICENSE](LICENSE); the rest of this README is theirs, unchanged.
+
+---
+
 ## The task
 
 **For every frame of the match, say who has the ball.**

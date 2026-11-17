@@ -62,3 +62,9 @@ __pycache__/
 venv/
 env/
 .DS_Store
+
+# -- external validation data and pipeline caches ------------------------------------------------
+# Public sample games are fetched by validation/download_open_data.py rather than committed. cache/
+# holds arrays parsed from the match tracking, which must never reach a public repository.
+external_data/
+cache/

@@ -1,0 +1,11 @@
+{
+ "dead_bias": 0.040931,
+ "dead_temperature": 0.016026,
+ "from_dead_cost": 0.534142,
+ "switch_cost": 0.921437,
+ "tag_dead_weight": 0.05,
+ "tag_team_weight": 0.02,
+ "team_ball_temperature": 0.026857,
+ "team_shape_temperature": 0.005638,
+ "to_dead_cost": 0.446202
+}
